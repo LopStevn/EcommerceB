@@ -1,6 +1,9 @@
 using EcommerceB.Repositorio.DBContext;
 using Microsoft.EntityFrameworkCore;
 
+using EcommerceB.Repositorio.Contrato;
+using EcommerceB.Repositorio.Implementacion;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +17,9 @@ builder.Services.AddDbContext<BlazorEcommerceContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL"));
 });
+
+builder.Services.AddTransient(typeof(IGenericoRepositorio<>), typeof(GenericoRepositorio<>));
+builder.Services.AddScoped<IVentaRepositorio, VentaRepositorio>();
 
 var app = builder.Build();
 
