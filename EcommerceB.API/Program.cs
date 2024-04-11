@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceB.Repositorio.Contrato;
 using EcommerceB.Repositorio.Implementacion;
 using EcommerceB.Utilidades;
+using EcommerceB.Servicio.Contrato;
+using EcommerceB.Servicio.Implementacion;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,10 +21,19 @@ builder.Services.AddDbContext<BlazorEcommerceContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL"));
 });
 
+//Inyeccion de Dependencias - Repositorio
 builder.Services.AddTransient(typeof(IGenericoRepositorio<>), typeof(GenericoRepositorio<>));
 builder.Services.AddScoped<IVentaRepositorio, VentaRepositorio>();
 
+//Inyeccion de Dependencias - AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+//Inyeccion de Dependencias - Servicios
+builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
+builder.Services.AddScoped<ICategoriaServicio, CategoriaServicio>();
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
+builder.Services.AddScoped<IVentaServicio, VentaServicio>();
+builder.Services.AddScoped<IDashboardServicio, DashboardServicio>();
 
 var app = builder.Build();
 
