@@ -1,36 +1,59 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
+﻿using EcommerceB.DTO;
 using EcommerceB.Servicio.Contrato;
-using EcommerceB.DTO;
+using EcommerceB.Servicio.Implementacion;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceB.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class ProductoController : ControllerBase
     {
-        private readonly IUsuarioServicio _usuarioServicio;
+        private readonly IProductoServicio _productoServicio;
 
-        public UsuarioController(IUsuarioServicio usuarioServicio)
+        public ProductoController(IProductoServicio productoServicio)
         {
-            _usuarioServicio = usuarioServicio;
+            _productoServicio = productoServicio;
         }
 
-        [HttpGet("Lista/{rol:alpha}/{buscar:alpha?}")]
-        public async Task<IActionResult> Lista(string rol, string buscar = "NA")
+        [HttpGet("Lista/{buscar:alpha?}")]
+        public async Task<IActionResult> Lista(string buscar = "NA")
         {
-            var response = new ResponseDTO<List<UsuarioDTO>>();
+            var response = new ResponseDTO<List<ProductoDTO>>();
 
             try
             {
-                if (buscar == "NA") buscar = "" ;
+                if (buscar == "NA") buscar = "";
 
                 response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Lista(rol,buscar);
+                response.Resultado = await _productoServicio.Lista(buscar);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                response.EsCorrecto = false;
+                response.Mensaje = ex.Message;
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet("Catalogo/{categoria:alpha?}/{buscar:alpha?}")]
+        public async Task<IActionResult> Catalogo(string categoria, string buscar = "NA")
+        {
+            var response = new ResponseDTO<List<ProductoDTO>>();
+
+            try
+            {
+                if (buscar == "NA") buscar = "";
+                if (categoria.ToLower() == "todos") categoria = "";
+
+                response.EsCorrecto = true;
+                response.Resultado = await _productoServicio.Catalogo(categoria, buscar);
+
+            }
+            catch (Exception ex)
             {
                 response.EsCorrecto = false;
                 response.Mensaje = ex.Message;
@@ -42,12 +65,12 @@ namespace EcommerceB.API.Controllers
         [HttpGet("Obtener/{Id:int}")]
         public async Task<IActionResult> Obtener(int Id)
         {
-            var response = new ResponseDTO<UsuarioDTO>();
+            var response = new ResponseDTO<ProductoDTO>();
 
             try
             {
                 response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Obtener(Id);
+                response.Resultado = await _productoServicio.Obtener(Id);
 
             }
             catch (Exception ex)
@@ -60,34 +83,14 @@ namespace EcommerceB.API.Controllers
         }
 
         [HttpPost("Crear")]
-        public async Task<IActionResult> Crear([FromBody]UsuarioDTO modelo)
+        public async Task<IActionResult> Crear([FromBody] ProductoDTO modelo)
         {
-            var response = new ResponseDTO<UsuarioDTO>();
+            var response = new ResponseDTO<ProductoDTO>();
 
             try
             {
                 response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Crear(modelo);
-
-            }
-            catch (Exception ex)
-            {
-                response.EsCorrecto = false;
-                response.Mensaje = ex.Message;
-            }
-
-            return Ok(response);
-        }
-
-        [HttpPost("Autorizacion")]
-        public async Task<IActionResult> Autorizacion([FromBody] LoginDTO modelo)
-        {
-            var response = new ResponseDTO<SesionDTO>();
-
-            try
-            {
-                response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Autorizacion(modelo);
+                response.Resultado = await _productoServicio.Crear(modelo);
 
             }
             catch (Exception ex)
@@ -100,14 +103,14 @@ namespace EcommerceB.API.Controllers
         }
 
         [HttpPut("Editar")]
-        public async Task<IActionResult> Editar([FromBody] UsuarioDTO modelo)
+        public async Task<IActionResult> Editar([FromBody] ProductoDTO modelo)
         {
             var response = new ResponseDTO<bool>();
 
             try
             {
                 response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Editar(modelo);
+                response.Resultado = await _productoServicio.Editar(modelo);
 
             }
             catch (Exception ex)
@@ -120,14 +123,14 @@ namespace EcommerceB.API.Controllers
         }
 
         [HttpDelete("Eliminar/{Id:int}")]
-        public async Task<IActionResult> Eliminar(int Id)
+        public async Task<IActionResult> Eliminar(int id)
         {
             var response = new ResponseDTO<bool>();
 
             try
             {
                 response.EsCorrecto = true;
-                response.Resultado = await _usuarioServicio.Eliminar(Id);
+                response.Resultado = await _productoServicio.Eliminar(id);
 
             }
             catch (Exception ex)

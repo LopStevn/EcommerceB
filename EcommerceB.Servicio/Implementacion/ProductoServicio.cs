@@ -139,11 +139,11 @@ namespace EcommerceB.Servicio.Implementacion
             }
         }
 
-        public async Task<ProductoDTO> Obtener(ProductoDTO modelo)
+        public async Task<ProductoDTO> Obtener(int id)
         {
             try
             {
-                var consulta = _modeloRepositorio.Consulta(p => p.IdProducto == modelo.IdProducto);
+                var consulta = _modeloRepositorio.Consulta(p => p.IdProducto == id);
                 consulta = consulta.Include(c => c.IdCategoriaNavigation);
                 var fromDbModelo = await consulta.FirstOrDefaultAsync();
 

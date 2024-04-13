@@ -13,7 +13,7 @@ namespace EcommerceB.Servicio.Contrato
 
         Task<List<ProductoDTO>> Catalogo(string categoria, string buscar);
 
-        Task<ProductoDTO> Obtener(ProductoDTO modelo);
+        Task<ProductoDTO> Obtener(int id);
 
         Task<ProductoDTO> Crear(ProductoDTO modelo);
 
