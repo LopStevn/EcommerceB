@@ -134,11 +134,11 @@ namespace EcommerceB.Servicio.Implementacion
             }
         }
 
-        public async Task<UsuarioDTO> Obtener(UsuarioDTO modelo)
+        public async Task<UsuarioDTO> Obtener(int id)
         {
             try
             {
-                var consulta = _modeloRepositorio.Consulta(p => p.IdUsuario == modelo.IdUsuario);
+                var consulta = _modeloRepositorio.Consulta(p => p.IdUsuario == id);
                 var fromDbModelo = await consulta.FirstOrDefaultAsync();
 
                 if (fromDbModelo != null)

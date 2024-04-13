@@ -113,11 +113,11 @@ namespace EcommerceB.Servicio.Implementacion
             }
         }
 
-        public async Task<CategoriaDTO> Obtener(CategoriaDTO modelo)
+        public async Task<CategoriaDTO> Obtener(int id)
         {
             try
             {
-                var consulta = _modeloRepositorio.Consulta(p => p.IdCategoria == modelo.IdCategoria);
+                var consulta = _modeloRepositorio.Consulta(p => p.IdCategoria == id);
                 var fromDbModelo = await consulta.FirstOrDefaultAsync();
 
                 if (fromDbModelo != null)

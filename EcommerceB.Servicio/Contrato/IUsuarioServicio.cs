@@ -12,7 +12,7 @@ namespace EcommerceB.Servicio.Contrato
     {
         Task<List<UsuarioDTO>> Lista(string rol, string buscar);
 
-        Task<UsuarioDTO> Obtener(UsuarioDTO modelo);
+        Task<UsuarioDTO> Obtener(int id);
 
         Task<SesionDTO> Autorizacion(LoginDTO modelo);
 

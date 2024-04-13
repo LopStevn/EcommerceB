@@ -11,7 +11,7 @@ namespace EcommerceB.Servicio.Contrato
     {
         Task<List<CategoriaDTO>> Lista(string buscar);
 
-        Task<CategoriaDTO> Obtener(CategoriaDTO modelo);
+        Task<CategoriaDTO> Obtener(int id);
 
         Task<CategoriaDTO> Crear(CategoriaDTO modelo);
 
