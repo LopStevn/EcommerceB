@@ -78,7 +78,7 @@ namespace EcommerceB.Servicio.Implementacion
                     if (!respuesta)
                         throw new TaskCanceledException("No se pudo editar");
 
-                    return respuesta;    
+                    return respuesta;
                 }
                 else
                 {
@@ -110,7 +110,7 @@ namespace EcommerceB.Servicio.Implementacion
                 else
                 {
                     throw new TaskCanceledException("No se encontraron resultados");
-                }      
+                }
             }
             catch (Exception ex)
             {

@@ -36,12 +36,12 @@ namespace EcommerceB.WebAssembly.Servicio.Implementacion
 
         public async Task<ResponseDTO<List<CategoriaDTO>>> Lista(string buscar)
         {
-            return await _httpClient.GetFromJsonAsync<ResponseDTO<List<CategoriaDTO>>($"Categoria/Lista/{buscar}");
+            return await _httpClient.GetFromJsonAsync<ResponseDTO<List<CategoriaDTO>>>($"Categoria/Lista/{buscar}");
         }
 
-        public Task<ResponseDTO<CategoriaDTO>> Obtener(int id)
+        public async Task<ResponseDTO<CategoriaDTO>> Obtener(int id)
         {
-            throw new NotImplementedException();
+            return await _httpClient.GetFromJsonAsync<ResponseDTO<CategoriaDTO>>($"Categoria/Obtener/{id}");
         }
     }
 }
