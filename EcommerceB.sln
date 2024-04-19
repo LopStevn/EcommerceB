@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.Modelo", "EcommerceB.Model\EcommerceB.Modelo.csproj", "{7ED33440-179F-4716-A85F-0BD984679F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.Modelo", "EcommerceB.Model\EcommerceB.Modelo.csproj", "{7ED33440-179F-4716-A85F-0BD984679F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.Repositorio", "EcommerceB.Repositorio\EcommerceB.Repositorio.csproj", "{5B5DBB57-5BFC-429B-AB1B-AFB87C802B2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.Repositorio", "EcommerceB.Repositorio\EcommerceB.Repositorio.csproj", "{5B5DBB57-5BFC-429B-AB1B-AFB87C802B2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.Servicio", "EcommerceB.Servicio\EcommerceB.Servicio.csproj", "{463E3566-4A1F-4885-A8BC-B151AB43E9AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.Servicio", "EcommerceB.Servicio\EcommerceB.Servicio.csproj", "{463E3566-4A1F-4885-A8BC-B151AB43E9AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.DTO", "EcommerceB.DTO\EcommerceB.DTO.csproj", "{87A94BFC-2E49-4B71-919E-D83425CA00BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.DTO", "EcommerceB.DTO\EcommerceB.DTO.csproj", "{87A94BFC-2E49-4B71-919E-D83425CA00BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.Utilidades", "EcommerceB.Utilidades\EcommerceB.Utilidades.csproj", "{8BF2CA98-747B-4F48-8D36-29029F9C7525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.Utilidades", "EcommerceB.Utilidades\EcommerceB.Utilidades.csproj", "{8BF2CA98-747B-4F48-8D36-29029F9C7525}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.API", "EcommerceB.API\EcommerceB.API.csproj", "{62B72830-C0B6-49DB-94E9-48F2B2313A58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.API", "EcommerceB.API\EcommerceB.API.csproj", "{62B72830-C0B6-49DB-94E9-48F2B2313A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceB.WebAssembly", "EcommerceB.WebAssembly\EcommerceB.WebAssembly.csproj", "{0FE246EE-E8B7-4721-9379-C6FA2627352E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceB.WebAssembly", "EcommerceB.WebAssembly\EcommerceB.WebAssembly.csproj", "{0FE246EE-E8B7-4721-9379-C6FA2627352E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

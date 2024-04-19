@@ -8,6 +8,8 @@ using Blazored.Toast;
 using EcommerceB.WebAssembly.Servicio.Contrato;
 using EcommerceB.WebAssembly.Servicio.Implementacion;
 
+using CurrieTechnologies.Razor.SweetAlert2;
+
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
@@ -23,5 +25,7 @@ builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
 builder.Services.AddScoped<ICarritoServicio, CarritoServicio>();
 builder.Services.AddScoped<IVentaServicio, VentaServicio>();
 builder.Services.AddScoped<IDashboardServicio, DashboardServicio>();
+
+builder.Services.AddSweetAlert2();
 
 await builder.Build().RunAsync();
