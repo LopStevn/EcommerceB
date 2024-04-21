@@ -1,7 +1,5 @@
 ﻿@page "/usuarios"
 
-@using EcommerceB.WebAssembly.Servicio.Contrato
-@using EcommerceB.DTO
 @inject IUsuarioServicio usuarioServicio
 @inject IToastService toastService
 @inject SweetAlertService swal
@@ -87,7 +85,7 @@
     {
         SweetAlertResult result = await swal.FireAsync(new SweetAlertOptions{
             Title = "¿Estas seguro?",
-            Text = $"Se eliminará a " + modelo.NombreCompleto,
+            Text = $"Se eliminará a: " + modelo.NombreCompleto,
             Icon = SweetAlertIcon.Warning,
             ShowCancelButton = true,
             ConfirmButtonText = "Sí, eliminar",
