@@ -85,7 +85,7 @@
             categorias = (List<CategoriaDTO>)response.Resultado;
             if (categorias.Any() && Id == 0)
             {
-                modelo.IdProducto = categorias.First().IdCategoria;
+                modelo.IdCategoria = categorias.First().IdCategoria;
             }
         }
     }
@@ -111,7 +111,7 @@
 
     void CambiarCategoria(ChangeEventArgs e)
     {
-        modelo.IdProducto = Convert.ToInt32(e.Value.ToString());
+        modelo.IdCategoria = Convert.ToInt32(e.Value.ToString());
     }
 
     async Task OnFileChange(InputFileChangeEventArgs e)

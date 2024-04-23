@@ -48,7 +48,7 @@ namespace EcommerceB.Servicio.Implementacion
                 var dbModelo = _mapper.Map<Producto>(modelo);
                 var rspModelo = await _modeloRepositorio.Crear(dbModelo);
 
-                if (rspModelo.IdCategoria != 0)
+                if (rspModelo.IdProducto != 0)
                     return _mapper.Map<ProductoDTO>(rspModelo);
                 else
                     throw new TaskCanceledException("No se pudo crear");
